@@ -15,21 +15,23 @@
 			mysqli_query($db, $sql);
 			header('location: index.php');
 		}
-	}	
-
-
+    }
+    
+    ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>ToDo List Application PHP and MySQL</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-
 </head>
 <body>
 	<div class="heading">
-		<h2 style="font-style: 'Hervetica';">ToDo List Application PHP and MySQL database</h2>
+		<h2>ToDo List Application PHP and MySQL database</h2>
 	</div>
-	<form method="post" action="index.php" class="input_form">
+    <form method="post" action="index.php" class="input_form">
+    <?php if (isset($errors)) { ?>
+        <p><?php echo $errors; ?></p>
+    <?php } ?>
 		<input type="text" name="task" class="task_input">
 		<button type="submit" name="submit" id="add_btn" class="add_btn">Add Task</button>
 	</form>
